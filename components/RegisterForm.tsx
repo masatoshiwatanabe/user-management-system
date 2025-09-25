@@ -18,7 +18,7 @@ interface RegisterFormProps {
   onError?: (error: any) => void;
 }
 // TODO: 新規登録フォームコンポーネントを実装する
-const RegisterForm: React.FC = ({ onSuccess, onError }: RegisterFormProps) => {
+const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess, onError }) => {
   // useFormを使うときに宣言　型はRegisterFormInputs使用
   const {
     register,
@@ -30,10 +30,10 @@ const RegisterForm: React.FC = ({ onSuccess, onError }: RegisterFormProps) => {
     try {
       await createUser(formData as RegisterFormInputs);
       // APIリクエストがうまくいったら onSuccessの処理
-      onSuccess?.();
+      if (onSuccess) onSuccess();
       // APIリクエストが失敗したら　onErrorの処理
     } catch (error) {
-      onError?.(error);
+      if (onError) onError(error);
     }
   };
   return (
