@@ -62,7 +62,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess, onError }) => {
           margin="normal"
         />
         <Button type="submit" variant="outlined">
-          送信
+          登録
         </Button>
       </form>
     </Box>

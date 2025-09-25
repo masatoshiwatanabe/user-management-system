@@ -95,7 +95,7 @@ const EditUserForm: React.FC<EditUserFormProps> = ({
           margin="normal"
         />
         <Button type="submit" variant="outlined">
-          送信
+          更新
         </Button>
       </form>
     </Box>
