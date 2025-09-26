@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import UserCard from './UserCard';
+import type { Meta, StoryObj } from "@storybook/react";
+import UserCard from "./UserCard";
 
 const meta: Meta<typeof UserCard> = {
-  title: 'Components/UserCard',
+  title: "components/UserCard",
   component: UserCard,
 };
 
@@ -14,9 +14,9 @@ export const Default: Story = {
   args: {
     user: {
       id: 1,
-      name: '山田 太郎',
-      email: 'taro.yamada@example.com',
-      role: '管理者',
+      name: "山田 太郎",
+      email: "taro.yamada@example.com",
+      role: "管理者",
       deleted: false,
     },
   },
