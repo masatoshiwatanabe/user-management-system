@@ -9,6 +9,7 @@ import Link from "next/link";
 import React from "react";
 import { User } from "../types/User";
 import DeleteUserButton from "./DeleteUserButton";
+import CustomButton from "./parts/CustomButton";
 
 interface UserCardProps {
   user: User;
@@ -42,7 +43,9 @@ const UserCard: React.FC<UserCardProps> = ({ user, onDelete }) => {
         >
           編集
         </Button>
-        <DeleteUserButton userId={user.id} onDelete={onDelete} />
+        <CustomButton onClick={() => onDelete(user.id)} variantType="danger">
+          削除
+        </CustomButton>
       </CardActions>
     </Card>
   );
