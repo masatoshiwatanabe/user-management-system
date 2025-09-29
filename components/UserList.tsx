@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { User } from "../types/User";
-import UserCard from "./UserCard";
 import { softDeleteUser } from "@/utils/api";
+import CustomCard from "./parts/CustomCard";
+import { Button, Link } from "@mui/material";
+import CustomButton from "./parts/CustomButton";
 
 interface UserListProps {
   users: User[];
@@ -23,7 +25,37 @@ export const UserList: React.FC<UserListProps> = ({ users }) => {
   return (
     <>
       {filterUsers.map((user) => (
-        <UserCard key={user.id} user={user} onDelete={softDelete} />
+        <CustomCard
+          key={user.id}
+          title={user.name}                 
+          description={`メール: ${user.email}\n役割: ${user.role}`}
+          actions={
+            <>
+              <Button
+                variant="outlined"
+                size="small"
+                component={Link}
+                href={`/users/${user.id}/details`}
+              >
+                詳細
+              </Button>
+              <Button
+                variant="outlined"
+                size="small"
+                component={Link}
+                href={`/users/${user.id}/edit`}
+              >
+                編集
+              </Button>
+              <CustomButton
+                onClick={() => softDelete(user.id)}
+                variantType="danger"
+              >
+                削除
+              </CustomButton>
+            </>
+          }
+        />
       ))}
     </>
   );
