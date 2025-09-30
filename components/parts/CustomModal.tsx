@@ -18,7 +18,7 @@ const style = {
 interface CustomModalProps {
   open: boolean;
   title: string;
-  content: string;
+  content: React.ReactNode;
   onClose: () => void;
   onConfirm?: () => void;
 }

@@ -39,3 +39,30 @@ export const Default: Story = {
     );
   },
 };
+export const WithList: Story = {
+  render: () => {
+    const [open, setOpen] = useState(false);
+
+    return (
+      <Box>
+        <CustomButton variantType="primary" onClick={() => setOpen(true)}>
+          リスト付きモーダルを開く
+        </CustomButton>
+        <CustomModal
+          open={open}
+          title="リストの例"
+          content={
+            <>
+              <ul>
+                <li>項目1</li>
+                <li>項目2</li>
+              </ul>
+            </>
+          }
+          onClose={() => setOpen(false)}
+          onConfirm={() => setOpen(false)}
+        />
+      </Box>
+    );
+  },
+};
