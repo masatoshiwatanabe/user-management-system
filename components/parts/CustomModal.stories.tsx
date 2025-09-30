@@ -39,6 +39,7 @@ export const Default: Story = {
     );
   },
 };
+
 export const WithList: Story = {
   render: () => {
     const [open, setOpen] = useState(false);
@@ -58,6 +59,52 @@ export const WithList: Story = {
                 <li>項目2</li>
               </ul>
             </>
+          }
+          onClose={() => setOpen(false)}
+          onConfirm={() => setOpen(false)}
+        />
+      </Box>
+    );
+  },
+};
+export const StyleMordal: Story = {
+  render: () => {
+    const [open, setOpen] = useState(false);
+
+    return (
+      <Box>
+        <CustomButton variantType="primary" onClick={() => setOpen(true)}>
+          リスト付きモーダルを開く
+        </CustomButton>
+        <CustomModal
+          open={open}
+          title="リストの例"
+          content={
+            <Box sx={{ p: 2, bgcolor: "red", minHeight: "300px" }}>
+              背景色やサイズを stories 側で調整
+            </Box>
+          }
+          onClose={() => setOpen(false)}
+          onConfirm={() => setOpen(false)}
+        />
+      </Box>
+    );
+  },
+};
+export const WithInnerButton: Story = {
+  render: () => {
+    const [open, setOpen] = useState(false);
+
+    return (
+      <Box>
+        <CustomButton variantType="primary" onClick={() => setOpen(true)}>
+          リスト付きモーダルを開く
+        </CustomButton>
+        <CustomModal
+          open={open}
+          title="リストの例"
+          content={
+            <CustomButton variantType="denger"/>
           }
           onClose={() => setOpen(false)}
           onConfirm={() => setOpen(false)}
